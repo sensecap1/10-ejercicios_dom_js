@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/ejercicio_3/script.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <p class="fn-remove-me">Bye bye</p>
+		<div data-function="printHere"></div>
+
+  <!--1.1 Basandote en el array siguiente, crea una lista ul > li 
+dinámicamente en el html que imprima cada uno de los paises.
+const countries = ['Japón', 'Nicaragua', 'Suiza', 'Australia', 'Venezuela'];-->
+<script>
+const countries = ['Japón', 'Nicaragua', 'Suiza', 'Australia', 'Venezuela'];
+    <ul id="countriesList"></ul>
+    </script>
+
+  <!--1.2 Elimina el elemento que tenga la clase .fn-remove-me.-->
+<script>
+    document.querySelector('.fn-remove-me').remove();
+</script>
+
+  <!--1.3 Utiliza el array para crear dinamicamente una lista ul > li de elementos 
+en el div de html con el atributo data-function="printHere".
+const cars = ['Mazda 6', 'Ford fiesta', 'Audi A4', 'Toyota corola']; --> 
+<script>
+const cars = ['Mazda 6', 'Ford fiesta', 'Audi A4', 'Toyota corola'];
+const printHere = document.querySelector('[data-function="printHere"]');
+cars.forEach(car => {
+    const li = document.createElement('li');
+    li.textContent = car;
+    printHere.appendChild(li);
+});
+</script>
+
+  <!--1.4 Crea dinamicamente en el html una serie de divs que contenga un elemento 
+h4 para el titulo y otro elemento img para la imagen.
+const countries = [
+	{title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=1'}, 
+	{title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=2'},
+	{title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=3'},
+	{title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=4'},
+	{title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=5'}
+];-->
+<script>
+const countriesData = [
+    {title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=1'}, 
+    {title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=2'},
+    {title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=3'},
+    {title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=4'},
+    {title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=5'}
+];
+const container = document.createElement('div');
+countriesData.forEach(country => {
+    const countryDiv = document.createElement('div');
+    const title = document.createElement('h4');
+    title.textContent = country.title;
+    const img = document.createElement('img');
+    img.src = country.imgUrl;
+    countryDiv.appendChild(title);
+    countryDiv.appendChild(img);
+    container.appendChild(countryDiv);
+});
+document.body.appendChild(container);
+</script>
+
+  <!--1.5 Basandote en el ejercicio anterior. Crea un botón que elimine el último 
+elemento de la serie de divs.-->
+<script>
+const removeLastButton = document.createElement('button');
+removeLastButton.textContent = 'Remove Last Element';
+removeLastButton.addEventListener('click', () => {
+    const lastDiv = container.lastElementChild;
+    if (lastDiv) {
+        container.removeChild(lastDiv);
+    }
+});
+document.body.appendChild(removeLastButton);
+</script>
+
+<!--1.6 Basandote en el ejercicio anterior. Crea un botón para cada uno de los 
+divs que elimine ese mismo elemento del html.-->
+<script>
+  const allCards = cardsContainer.querySelectorAll('div');
+  allCards.forEach(card => {
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove This Element';
+    removeButton.addEventListener('click', () => {
+        card.remove();
+    });
+    card.appendChild(removeButton);
+  });
+  const cardsContainer = document.createElement('div');
+  countriesData.forEach(country )
+</script>
+
+</body>
+</html>

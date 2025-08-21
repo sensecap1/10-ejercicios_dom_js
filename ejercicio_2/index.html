@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	<h2 class="fn-insert-here"></h2>
+	<p class="fn-remove-me">Eliminame!</p>
+  <p>No me elimines!</p>
+  <p>No me elimines!</p>
+  <p class="fn-remove-me">Eliminame!</p>
+  <p>No me elimines!</p>
+  <p class="fn-remove-me">Eliminame!</p>
+  <p class="fn-remove-me">Eliminame!</p>
+  <p>No me elimines!</p>
+	<div></div><div></div>
+	<div class="fn-insert-here"></div>
+  <div class="fn-insert-here"></div>
+
+  <!--2.1 Inserta dinamicamente en un html un div vacio con javascript.-->
+  <div class="div1"></div>
+  <script>
+    const div1 = document.querySelector('.div1');
+    div1.innerHTML = '<div class="fn-insert-here"></div>';
+  </script>
+
+  <!--  2.2 Inserta dinamicamente en un html un div que contenga una p con javascript -->
+  <div class="divP"></div>
+  <script>
+    const divP = document.querySelector('.divP');
+    divP.innerHTML = '<div class="fn-insert-here"><p>Hola, soy una p dentro de un div!</p></div>';
+  </script>
+
+  <!-- 2.4 Inserta dinamicamente con javascript en un html una p con el 
+	texto 'Soy dinámico!'. -->  
+  <div class="dynamicP"></div>
+  <script>
+    const dynamicP = document.querySelector('.dynamicP');
+    dynamicP.innerHTML = '<p>Soy dinámico!</p>';
+  </script>
+
+  <!-- 2.5 Inserta en el h2 con la clase .fn-insert-here el texto 'Wubba Lubba dub dub'.-->
+  <script>
+    const h2 = document.querySelector('.fn-insert-here');
+    h2.textContent = 'Wubba Lubba dub dub';
+  </script>
+
+  <!-- 2.6 Basandote en el siguiente array crea una lista ul > li con 
+los textos del array.
+const apps = ['Facebook', 'Netflix', 'Instagram', 'Snapchat', 'Twitter'];-->
+  <ul class="listado-here"></ul>
+  <script>
+    const apps = ['Facebook', 'Netflix', 'Instagram', 'Snapchat', 'Twitter'];
+    const ul = document.querySelector('.listado-here');
+    
+    apps.forEach(app => {
+      const li = document.createElement('li');
+      li.textContent = app;
+      ul.appendChild(li);
+    });
+    </script>
+
+
+
+  <!-- 2.7 Elimina todos los elementos con la clase .fn-remove-me -->
+  <script>
+    const elementsToRemove = document.querySelectorAll('.fn-remove-me');
+    elementsToRemove.forEach(element => element.remove());
+  </script>
+c
+  <!-- 2.8 Inserta una p con el texto 'Voy en medio!' entre los dos divs-->
+  <div class="middle"></div>
+  <script>
+    const t = document.querySelector('div.fn-insert-here');
+if (t) {
+  const d2 = t.previousElementSibling;           // segundo <div> original
+  const d1 = d2 && d2.previousElementSibling;    // primer <div> original
+  if (d1 && d2) {
+    const p = document.createElement('p');
+    p.textContent = 'Voy en medio!';
+    d2.before(p); 
+  }
+}
+  </script>
+
+    <!-- 2.9 Inserta p con el texto 'Voy dentro!', dentro de todos los div con la clase .fn-insert-here -->
+  <script>
+     document.querySelectorAll('.fn-insert-here').forEach(div => {
+      const p = document.createElement('p');
+      p.textContent = 'Voy dentro!';
+      div.appendChild(p);
+    });
+  </script>
+
+<script src="./script.js"></script>
+</body>
+</html>
